@@ -9,4 +9,6 @@ def home(request):
 
 def analysis(request):
     print(type(request))
-    return HttpResponse(request.GET.get('text'))
+    text = request.GET.get('text')
+    context = {'text': text}
+    return render(request, "output.html", context)
