@@ -32,8 +32,7 @@ for path in path_list:
         pattern = re.compile(r"[\u0E00-\u0E7F0-9.%]+")
         all_sentences.append(pattern.findall(file_string))
 print("Preprocessing sentences done!")
-
 # Train & save word2vec model for sentences
-model = gensim.models.Word2Vec(all_sentences)
+model = gensim.models.Word2Vec(all_sentences, min_count=1)
 print("Training model done!")
 model.save('/Users/AUM/Documents/PROJECT/mockup_senior_project/thai_text_mock_up/word2vec/w2v')
