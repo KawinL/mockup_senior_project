@@ -13,9 +13,13 @@ def home(request):
 def analysis(request):
     print(type(request))
     text = request.GET.get('text')
+    print(text)
     context = {}
     tokenized_sentences = word2vec.preprocessing.tokenize(text)
+    print(tokenized_sentences)
     sentences_vector = word2vec.preprocessing.word_embedding(tokenized_sentences)
-    context['tokenized'] = tokenized_sentences
-    context['vector'] = sentences_vector
+    print(sentences_vector)
+    # context['tokenized'] = tokenized_sentences
+    # context['vector'] = sentences_vector
+    context['text'] = text
     return render(request, "output.html", context)
