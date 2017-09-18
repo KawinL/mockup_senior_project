@@ -1,12 +1,11 @@
 import gensim, deepcut
 
-def tokenizr(string):
-    new_sentences = deepcut.tokenize(string)
-    return new_sentences
+def tokenize(string):
+    return deepcut.tokenize(string)
 
-def word_embedder(sentence_list):
+def word_embedding(sentence_list):
     # Load & train word2vec model
-    model = gensim.models.Word2Vec.load('/Users/AUM/Documents/PROJECT/mockup_senior_project/thai_text_mock_up/preprocessing/w2v')
+    model = gensim.models.Word2Vec.load('/Users/AUM/Documents/PROJECT/mockup_senior_project/thai_text_mock_up/word2vec/w2v')
     # model.build_vocab(more_sentences)
     # model.train(more_sentences)
     sentence_vectors = []
@@ -14,7 +13,7 @@ def word_embedder(sentence_list):
         try:
             wordVector = model[word]
         except KeyError:
-         print(word + " Not found!")
+            continue
         else:
             sentence_vectors.append(wordVector)
     return sentence_vectors

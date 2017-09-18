@@ -36,4 +36,4 @@ print("Preprocessing sentences done!")
 # Train & save word2vec model for sentences
 model = gensim.models.Word2Vec(all_sentences)
 print("Training model done!")
-model.save('/Users/AUM/Documents/PROJECT/mockup_senior_project/thai_text_mock_up/preprocessing/w2v')
+model.save('/Users/AUM/Documents/PROJECT/mockup_senior_project/thai_text_mock_up/word2vec/w2v')
