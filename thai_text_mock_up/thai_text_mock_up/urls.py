@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sentiment/', include('sentiment.urls')),
+    url(r'tagger/', include('tagger.urls'))
 
 ]

@@ -10,5 +10,8 @@ def home(request):
 def analysis(request):
     print(type(request))
     text = request.GET.get('text')
-    context = {'text': text}
+    context = {
+        'text': text,
+        'rating': 100000
+    }
     return render(request, "output.html", context)
