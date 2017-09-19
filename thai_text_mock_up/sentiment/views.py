@@ -17,12 +17,12 @@ def home(request):
 def analysis(request):
     print(type(request))
     text = request.GET.get('text')
-    print(text)
+    # print(text)
     context = {}
     tokenized_sentences = word2vec.preprocessing.tokenize(text)
     print(tokenized_sentences)
-    sentences_vector = word2vec.preprocessing.word_embedding2(tokenized_sentences)
-    print(sentences_vector)
+    sentences_vector = word2vec.preprocessing.word_embedding(tokenized_sentences)
+    # print(sentences_vector)
     prediction= sequential_model.lstm.predict([sentences_vector])
     # context['tokenized'] = tokenized_sentences
     # context['vector'] = sentences_vector
@@ -40,8 +40,8 @@ def analysis(request):
 #     # context['tokenized'] = tokenized_sentence
 #     # context['vector'] = sentences_vector
 #     context['text'] = prediction
-<<<<<<< HEAD
-#     return prediction
-=======
-#     return prediction
->>>>>>> 2ecd877917e89f1f50cdad1a4181092ee3eac000
+# <<<<<<< HEAD
+# #     return prediction
+# =======
+# #     return prediction
+# >>>>>>> 2ecd877917e89f1f50cdad1a4181092ee3eac000
