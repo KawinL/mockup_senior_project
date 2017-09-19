@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import sys, os
+import sys
+import os
 sys.path.append(os.path.abspath(os.path.join('..')))
-import word2vec,sequential_model
+import word2vec
+import sequential_model
 import numpy as np
 # from .sequential_model.lstm import *
 # Create your views here.
@@ -19,13 +21,13 @@ def analysis(request):
     context = {}
     tokenized_sentences = word2vec.preprocessing.tokenize(text)
     print(tokenized_sentences)
-    sentences_vector = word2vec.preprocessing.word_embedding(tokenized_sentences)
-    # print(sentences_vector)
+    sentences_vector = word2vec.preprocessing.word_embedding2(tokenized_sentences)
+    print(sentences_vector)
     prediction= sequential_model.lstm.predict([sentences_vector])
-    print(prediction)
     # context['tokenized'] = tokenized_sentences
     # context['vector'] = sentences_vector
-    context['text'] = prediction
+    context['text'] = text
+    context['rating'] = prediction
     return render(request, "output.html", context)
 
 # def analysis2(text):
@@ -38,5 +40,8 @@ def analysis(request):
 #     # context['tokenized'] = tokenized_sentence
 #     # context['vector'] = sentences_vector
 #     context['text'] = prediction
+<<<<<<< HEAD
 #     return prediction
-
+=======
+#     return prediction
+>>>>>>> 2ecd877917e89f1f50cdad1a4181092ee3eac000

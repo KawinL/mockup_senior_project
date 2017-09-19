@@ -1,10 +1,11 @@
-import gensim, deepcut
-import os
-def tokenize(string):
-    sentences = string.split(" ")
+import gensim, deepcut, os, re
+
+def tokenize(text):
+    sentences = re.split(" |\n", text)
     sentence_list = []
     for sentence in sentences:
-        sentence_list.append(deepcut.tokenize(sentence))
+        if sentence:
+            sentence_list.append(deepcut.tokenize(sentence))
     return sentence_list
 
 def word_embedding(more_sentences):

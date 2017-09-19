@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 .installed.cfg
+*.pyc
+*.xml
 bin
 develop-eggs
 dist
