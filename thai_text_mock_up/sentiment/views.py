@@ -19,9 +19,10 @@ def analysis(request):
     context = {}
     tokenized_sentences = word2vec.preprocessing.tokenize(text)
     print(tokenized_sentences)
-    sentences_vector = word2vec.preprocessing.word_embedding2(tokenized_sentences)
-    print(sentences_vector)
+    sentences_vector = word2vec.preprocessing.word_embedding(tokenized_sentences)
+    # print(sentences_vector)
     prediction= sequential_model.lstm.predict([sentences_vector])
+    print(prediction)
     # context['tokenized'] = tokenized_sentences
     # context['vector'] = sentences_vector
     context['text'] = prediction
