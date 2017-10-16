@@ -1,0 +1,14 @@
+
+*.txt
+
+*.dat
+
+*.pyc
+
+*.lck
+
+*.ctrl
+
+*.properties
+
+*.log
