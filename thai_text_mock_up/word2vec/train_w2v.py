@@ -14,6 +14,7 @@ for path in best_path_list:
         file.close()
 
         file_string = file_string.replace("\n", "")
+        file_string = re.sub(r"[\d\u0E50-\u0E59]", "0", file_string)
         file_sentence = file_string.split('|')
         temp_sentence = []
         for sentence in file_sentence:
@@ -39,6 +40,8 @@ for path in best_free_path_list:
 
         file_string = re.sub(r'<NE>.*<\/NE>', '', file_string)
         file_string = re.sub(r'<AB>.*<\/AB>', '', file_string)
+        file_string = re.sub(r'<POEM>.*<\/POEM>', '', file_string)
+        file_string = re.sub(r"[\d\u0E50-\u0E59]", "0", file_string)
         file_string = file_string.replace("\n", "")
         best_free_all_sentences.append(file_string.split('|'))
 print("Free BEST processing done!")
